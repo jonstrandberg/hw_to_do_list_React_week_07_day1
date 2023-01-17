@@ -5,15 +5,15 @@ import './App.css';
 function App() {
   
   const [items, setItems] = useState([
-    {id: 1, name: "Buy shopping"},
-    {id: 2, name: "Clean bathroom"},
-    {id: 3, name: "Pay CodeClan"},
-    {id: 4, name: "Take dog for walk"}
+    {id: 1, name: "Buy shopping", priority: "high"},
+    {id: 2, name: "Clean bathroom", priority: "low"},
+    {id: 3, name: "Pay CodeClan", priority: "high"},
+    {id: 4, name: "Take dog for walk", priority: "high"}
   ])
 
   const [newItem, setNewItem] = useState("")
 
-  const [priority, setPriority] = useState()
+  const [priority, setPriority] = useState("")
 
   const handleItemInput = (evt) => {
     setNewItem (evt.target.value)
