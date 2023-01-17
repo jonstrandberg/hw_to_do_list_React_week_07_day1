@@ -39,7 +39,7 @@ function App() {
   
   const toDoList = items.map((item) => {
     return ( 
-    <li key={(item.id)}>
+    <li key={(item.id)} className={item.priority} >
       {item.name}
       <button onClick={() => {completedItem(item.id)}}>Completed</button>
     </li>
@@ -52,37 +52,21 @@ function App() {
 
     <hr></hr>
 
+
     <ul>
       {toDoList}
     </ul>
 
-    <form>
-    <fieldset>
-    <legend>Select priority</legend>
-
-    <div>
-      <input type="radio" id="low-priority" name="priority" value="low"
-          checked={priority === "low"}
-          onChange={handlePriorityChange}
-      />
-      <label htmlFor="low-priority">Low Priority</label>
-    </div>
-
-    <div>
-      <input type="radio" id="high-priority" name="priority" value="high"
-          checked={priority === "high"}
-          onChange={handlePriorityChange}
-      />
-      <label htmlFor="high-priority">High Priority</label>
-    </div>
-  </fieldset>
-  </form>
-
-  <form onSubmit={saveNewItemWithPriority}>
+    <form onSubmit={saveNewItemWithPriority}>
       <label htmlFor="new-item"> Add new Item</label>
-      <input id="new-item" type="text" value={newItem} onChange={handleItemInput}></input>
+      <input id="new-item" type="text" value={newItem} onChange={handleItemInput} />
+      <label htmlFor="low-priority">Low Priority</label>
+      <input type="radio" id="low-priority" name="priority" value="low" checked={priority === "low"} onChange={handlePriorityChange}/>
+      <label htmlFor="high-priority">High Priority</label>
+      <input type="radio" id="high-priority" name="priority" value="high" checked={priority === "high"} onChange={handlePriorityChange}/>
       <input type="submit" value="Save New Item" ></input>
     </form>
+
 
   </div>
   )
